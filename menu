@@ -1,0 +1,49 @@
+<div class="header-bottom clearfix">
+		<div class="container">
+			<div class="logo">
+				<a href="#"><img src="images/logo.png" alt="logo"></a>
+			</div>
+			<ul class="menu">
+				<li><a href="#">Home </a></li>
+				<li><a href="#">About </a></li>
+				<li><a href="#">Services </a></li>
+				<li><a href="#">Gallery</a></li>
+				<li><a href="#">Contact</a></li>
+				<li class="active"><a href="#">Get a Quote</a></li>
+			</ul>
+			<a href="javascript:void(0)"  id="toggle-menu"><i class="fa fa-bars" aria-hidden="true"></i></a>
+		</div>
+	</div>
+  
+  === Note ===
+1) Add <a href="javascript:void(0)"  id="toggle-menu"><i class="fa fa-bars" aria-hidden="true"></i></a> This code below menu list
+2) add position relative on parents class(ex. .menu:{position:relative})
+3) Add this code in css
+  #toggle-menu {
+    position: absolute;
+    top: 15px;
+    right:15px;  
+    display: none;
+    font-size: 25px;
+} 
+4) Add this in 767width
+ @media (max-width: 767px){
+	  #toggle-menu {display: block;}
+	  .menu{display: none;}
+}
+5) Add tjis code in custom function( change the class name and id)
+<script type="text/javascript">
+	/*mobile*/
+	$('#toggle-menu').click(function(){
+   	$('.menu').slideToggle(200);
+   	$('#toggle-menu i').toggleClass('fa-times');
+   	$('#toggle-menu i').toggleClass('fa-bars');
+ 	});
+ 	if ($(window).width() < 768){
+  		$('.menu> li> a').click(function(){
+   		$('.menu').slideUp(200);
+   		$('#toggle-menu i').removeClass('fa-times');
+   		$('#toggle-menu i').addClass('fa-bars');
+  	});
+ 	} 
+</script>
